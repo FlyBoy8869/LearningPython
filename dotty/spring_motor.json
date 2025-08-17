@@ -1,0 +1,86 @@
+{
+    "title": "Korean CECIL3 Lance Barrel",
+
+    "drawings": [
+        {
+            "kind": "assembly",
+            "number": "P0800150790",
+            "title": "Spring Motor",
+            "notes": "Top Level Assembly"
+        },
+
+        {
+            "kind": "assembly",
+            "number": "P0800150791",
+            "title": "Modification, Spring Motor",
+            "notes": "Tap holes to 1/4-20, don't drill"
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150788",
+            "title": "Plate, Base, Springs, Take Up",
+            "notes": ""
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150789",
+            "title": "Spacer, Springs, Take Up",
+            "notes": ""
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150822",
+            "title": "Modification, Stopper",
+            "notes": ""
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150823",
+            "title": "Washer, Spring Motor",
+            "notes": ""
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150824",
+            "title": "Bar, Cables, Spring Motor",
+            "notes": ""
+        },
+
+        {
+            "kind": "part",
+            "number": "P0800150839",
+            "title": "Cover, Springs, Take Up",
+            "notes": ""
+        }
+
+    ],
+
+    "documents": [
+        {
+            "number": "DKEP.CECIL3.315",
+            "title": "Bench Top Test - Spring Motors",
+            "notes": ""
+        },
+
+        {
+            "number": "DKEP.CECIL3.2016",
+            "title": "Assembly, Spring Motor Take-Up, Traveler",
+            "notes": ""
+        },
+
+        [
+          "zero", "one", "two", "three"
+        ],
+
+        [
+          "four", "five", "six", "seven"
+        ]
+    ],
+
+    "author": "Charles Cognato"
+}

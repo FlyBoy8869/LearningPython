@@ -1,0 +1,78 @@
+{
+  "drawings_sources": [
+    "/Users/charles/working/P080015_KEP"
+  ],
+
+  "drawings": [
+    {
+      "number": "P0800150790",
+      "kind": "assembly",
+      "status": "active",
+      "description": "Assy, Springs, Take Up",
+      "note": ""
+    },
+    {
+      "number": "P0800150791",
+      "kind": "assembly",
+      "status": "active",
+      "description": "Modification, Spring Motor, Take Up",
+      "note": ""
+    },
+    {
+      "number": "P0800150788",
+      "kind": "part",
+      "status": "active",
+      "description": "Plate, Base, Springs, Take Up",
+      "note": ""
+    },
+    {
+      "number": "P0800150789",
+      "kind": "part",
+      "status": "active",
+      "description": "Spacer, Springs, Take Up",
+      "note": ""
+    },
+    {
+      "number": "P0800150822",
+      "kind": "part",
+      "status": "active",
+      "description": "Modification, Stopper",
+      "note": ""
+    },
+    {
+      "number": "P0800150824",
+      "kind": "part",
+      "status": "active",
+      "description": "Bar, Cables, Spring Motor",
+      "note": ""
+    },
+    {
+      "number": "P0800150839",
+      "kind": "part",
+      "status": "active",
+      "description": "Cover, Springs, Take Up",
+      "note": ""
+    }
+  ],
+
+  "document_sources": [
+    "/Users/charles/working/documents"
+  ],
+
+  "documents": [
+    {
+      "number": "DKEP.CECIL3.315",
+      "kind": "test",
+      "status": "active",
+      "description": "Bench Top Test - Spring Motors",
+      "note": ""
+    },
+    {
+      "number": "DKEP.CECIL3.2016",
+      "kind": "traveler",
+      "status": "active",
+      "description": "Assembly, Spring Motor Take-Up",
+      "note": ""
+    }
+  ]
+}

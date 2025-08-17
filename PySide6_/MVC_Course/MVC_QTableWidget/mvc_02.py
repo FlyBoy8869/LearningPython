@@ -1,0 +1,19 @@
+import sys
+
+from PySide6.QtWidgets import QApplication
+
+# noinspection PyUnresolvedReferences
+import resources_rc
+from widget import Widget
+
+
+def main():
+    app = QApplication(sys.argv)
+    window = Widget()
+    window.show()
+
+    return app.exec()
+
+
+if __name__ == "__main__":
+    sys.exit(main())
