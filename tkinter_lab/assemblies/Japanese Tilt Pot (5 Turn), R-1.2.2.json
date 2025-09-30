@@ -1,0 +1,11 @@
+{
+    "Japanese Tilt Pot (5-Turn), R-1.2.2": [
+        "C00931:build",
+        "C03920:inspect",
+        "C03922:inspect",
+        "C03923:build",
+        "DCIT.MHI.302:doc",
+        "DCIT.MHI.2000:doc",
+        "DCIT.MHI.2011:doc"
+    ]
+}

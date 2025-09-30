@@ -3,7 +3,7 @@ from pathlib import Path
 
 from black import JSONDecodeError
 
-assemblies_path = Path("/Users/charles/working/MY_CECIL/assemblies")
+assemblies_path = Path("./assemblies")
 
 
 def load_assemblies() -> dict:
