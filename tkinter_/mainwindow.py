@@ -2,7 +2,7 @@ import tkinter as tk
 from tkinter import ttk
 
 from listitem import TKListItem
-from tkinter_lab import assemblies, menu
+from tkinter_ import assemblies, menu
 
 doc_path = "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/cecil"
 
@@ -90,6 +90,9 @@ class MainWindow:
         self.document_listbox.grid(
             row=0, column=0, columnspan=1, sticky="NSEW", padx=3, pady=3
         )
+        self.document_listbox.bind(
+            "<<ListboxSelect>>", self.on_document_list_box_item_clicked
+        )
 
         # ----- Scrollbar
         self.document_listbox_scrollbar = tk.Scrollbar(
@@ -141,16 +144,12 @@ class MainWindow:
     def on_copy_button_clicked(self):
         print("copying files...")
         selection = self.document_listbox.curselection()
-        print(f"{selection}")
         for index in selection:
             print(self.document_listbox.get(index))
 
-    def update_status_bar(self, text: str):
-        self.status_var.set(text)
-
-    def _populate_document_listbox(self, documents):
-        self.document_list_var.set(documents)
-        self.document_count_var.set(f"Documents: {self.document_listbox.size()}")
+    def on_document_list_box_item_clicked(self, _):
+        selection = self.document_listbox.curselection()
+        self.update_status_bar(f"{len(selection)} documents selected.")
 
     def get_assembly_names(self) -> list[TKListItem]:
         av = []
@@ -158,3 +157,10 @@ class MainWindow:
             av.append(TKListItem(k, v))
 
         return sorted(av)
+
+    def update_status_bar(self, text: str):
+        self.status_var.set(text)
+
+    def _populate_document_listbox(self, documents):
+        self.document_list_var.set(documents)
+        self.document_count_var.set(f"Documents: {self.document_listbox.size()}")
