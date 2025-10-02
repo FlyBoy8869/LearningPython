@@ -39,15 +39,20 @@ class MainWindow:
         # noinspection PyTypeChecker
         self.assembly_list_var = tk.StringVar(value=self.get_assembly_names())
         self.assembly_listbox = tk.Listbox(
-            self.list_box_frame, listvariable=self.assembly_list_var, height=25, width=0
+            self.list_box_frame,
+            listvariable=self.assembly_list_var,
+            height=25,
+            width=0,
         )
         self.assembly_listbox.grid(row=0, column=0, stick="NSW", padx=5, pady=5)
         self.assembly_listbox.selection_set(0)
         self.assembly_listbox.bind("<<ListboxSelect>>", self.on_assembly_item_clicked)
 
         # ----- Scrollbar
-        self.listbox_scrollbar = tk.Scrollbar(
-            self.list_box_frame, orient="vertical", command=self.assembly_listbox.yview
+        self.listbox_scrollbar = ttk.Scrollbar(
+            self.list_box_frame,
+            orient="vertical",
+            command=self.assembly_listbox.yview,
         )
         self.assembly_listbox.configure(yscrollcommand=self.listbox_scrollbar.set)
         self.listbox_scrollbar.grid(row=0, column=1, sticky="NS", pady=2)
@@ -95,7 +100,7 @@ class MainWindow:
         )
 
         # ----- Scrollbar
-        self.document_listbox_scrollbar = tk.Scrollbar(
+        self.document_listbox_scrollbar = ttk.Scrollbar(
             self.document_list_box_frame,
             orient="vertical",
             command=self.document_listbox.yview,
