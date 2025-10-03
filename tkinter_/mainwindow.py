@@ -23,7 +23,7 @@ class MainWindow:
 
         # -----Frame
         self.list_box_frame = ttk.Frame(
-            self.parent, relief="sunken", borderwidth=1, padding=(5, 5, 5, 5)
+            self.parent, relief="sunken", borderwidth=1, padding=(3, 3, 3, 3)
         )
         self.list_box_frame.grid(
             row=0,
@@ -71,7 +71,7 @@ class MainWindow:
 
         # ----- Frame
         self.document_list_box_frame = ttk.Frame(
-            self.parent, relief="sunken", borderwidth=1, padding=(5, 5, 5, 5)
+            self.parent, relief="sunken", borderwidth=1, padding=(3, 3, 3, 3)
         )
         self.document_list_box_frame.grid(
             row=0,
@@ -136,6 +136,7 @@ class MainWindow:
         self.copy_button = ttk.Button(
             self.parent, text="Copy", command=self.on_copy_button_clicked
         )
+        self.copy_button.configure(state=tk.DISABLED)
         self.copy_button.grid(row=1, column=2, sticky="EN")
 
         self.parent.rowconfigure(0, weight=1)
@@ -147,14 +148,18 @@ class MainWindow:
             self._populate_document_listbox(docs)
 
     def on_copy_button_clicked(self):
-        print("copying files...")
-        selection = self.document_listbox.curselection()
-        for index in selection:
-            print(self.document_listbox.get(index))
+        if selection := self.document_listbox.curselection():
+            print("copying files...")
+            for index in selection:
+                print(self.document_listbox.get(index))
+
+            self.document_listbox.selection_clear(0, tk.END)
+            self.copy_button.configure(state=tk.DISABLED)
 
     def on_document_list_box_item_clicked(self, _):
         selection = self.document_listbox.curselection()
         self.update_status_bar(f"{len(selection)} documents selected.")
+        self.copy_button.configure(state=tk.NORMAL)
 
     def get_assembly_names(self) -> list[TKListItem]:
         av = []
