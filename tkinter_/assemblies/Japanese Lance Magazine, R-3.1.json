@@ -71,10 +71,11 @@
         "C03254:inspect",
         "C03255:inspect",
         "C03259:inspect",
-        "DCIT.MHI.313:doc",
+        "DCIT.MHI.317:doc",
         "DCIT.MHI.318:doc",
         "DCIT.MHI.503:doc",
         "DCIT.MHI.2017:doc",
-        "DCIT.MHI.2018:doc"
+        "DCIT.MHI.2018:doc",
+        "DCIT.MHI.2030:doc"
     ]
 }
