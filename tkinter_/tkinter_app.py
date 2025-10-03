@@ -1,5 +1,4 @@
 import tkinter as tk
-
 from mainwindow import MainWindow
 
 APP_TITLE = "CopyDocs"
