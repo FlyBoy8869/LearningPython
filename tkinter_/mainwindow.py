@@ -3,11 +3,12 @@ import tkinter as tk
 from tkinter import ttk
 
 from listitem import TKListItem
-from tkinter_ import assemblies, menu
+from tkinter_ import assemblies
+from tkinter_.gui import menu
 
 from tkinter_.gui.panels import AssemblyPanel, DocumentPanel
 
-doc_path = "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/cecil"
+doc_path = "/Users/charles/working/CECIL/test docs"
 
 WINDOW_SIDE_PAD = 5
 WINDOW_TOP_PAD = 5
