@@ -7,6 +7,7 @@ WINDOW_BOTTOM_PAD = 5
 
 
 class AssemblyPanel:
+    # noinspection PyAttributeOutsideInit
     def setup_assembly_panel(self, widget_parent):
         # ===== Assemblies Listbox Section =========================================================================
 
@@ -58,6 +59,7 @@ class AssemblyPanel:
 
 
 class DocumentPanel:
+    # noinspection PyAttributeOutsideInit
     def setup_document_panel(self, widget_parent):
         # ===== Documents Listbox Section
 
