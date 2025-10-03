@@ -1,0 +1,109 @@
+import tkinter as tk
+from tkinter import ttk
+
+WINDOW_SIDE_PAD = 5
+WINDOW_TOP_PAD = 5
+WINDOW_BOTTOM_PAD = 5
+
+
+class AssemblyPanel:
+    def setup_assembly_panel(self, widget_parent):
+        # ===== Assemblies Listbox Section =========================================================================
+
+        # -----Frame
+        self.list_box_frame = ttk.Frame(
+            widget_parent,
+            relief="solid",
+            borderwidth=2,
+            padding=(3, 3, 3, 3),
+        )
+        self.list_box_frame.grid(
+            row=0,
+            column=0,
+            columnspan=1,
+            padx=WINDOW_SIDE_PAD,
+            pady=WINDOW_TOP_PAD,
+            sticky="NWS",
+        )
+        self.list_box_frame.rowconfigure(0, weight=1)
+
+        # ----- Listbox
+        # noinspection PyTypeChecker
+        self.assembly_list_var = tk.StringVar()
+        self.assembly_listbox = tk.Listbox(
+            self.list_box_frame,
+            listvariable=self.assembly_list_var,
+            height=25,
+            width=0,
+        )
+        self.assembly_listbox.grid(row=0, column=0, stick="NSW", padx=5, pady=5)
+        self.assembly_listbox.selection_set(0)
+
+        # ----- Scrollbar
+        self.listbox_scrollbar = ttk.Scrollbar(
+            self.list_box_frame,
+            orient="vertical",
+            command=self.assembly_listbox.yview,
+        )
+        self.assembly_listbox.configure(yscrollcommand=self.listbox_scrollbar.set)
+        self.listbox_scrollbar.grid(row=0, column=1, sticky="NS", pady=2)
+
+        # ----- Assembly Count Label
+        self.assembly_count_var = tk.StringVar()
+        self.assembly_count = ttk.Label(
+            widget_parent, textvariable=self.assembly_count_var
+        )
+        self.assembly_count.grid(row=1, column=0, sticky="WS", padx=WINDOW_SIDE_PAD)
+        # ===== End Assembly Listbox Section =========================================================================
+
+
+class DocumentPanel:
+    def setup_document_panel(self, widget_parent):
+        # ===== Documents Listbox Section
+
+        # ----- Frame
+        self.document_list_box_frame = ttk.Frame(
+            widget_parent, relief="solid", borderwidth=2, padding=(3, 3, 3, 3)
+        )
+        self.document_list_box_frame.grid(
+            row=0,
+            column=1,
+            columnspan=3,
+            padx=WINDOW_SIDE_PAD,
+            pady=WINDOW_TOP_PAD,
+            sticky="NWS",
+        )
+        self.document_list_box_frame.rowconfigure(0, weight=1)
+
+        # ----- Listbox
+        self.document_list_var = tk.StringVar()
+        self.document_listbox = tk.Listbox(
+            self.document_list_box_frame,
+            listvariable=self.document_list_var,
+            height=25,
+            width=0,
+            selectmode="extended",
+        )
+        self.document_listbox.grid(
+            row=0, column=0, columnspan=1, sticky="NSEW", padx=3, pady=3
+        )
+
+        # ----- Scrollbar
+        self.document_listbox_scrollbar = ttk.Scrollbar(
+            self.document_list_box_frame,
+            orient="vertical",
+            command=self.document_listbox.yview,
+        )
+        self.document_listbox.configure(
+            yscrollcommand=self.document_listbox_scrollbar.set
+        )
+        self.document_listbox_scrollbar.grid(row=0, column=2, sticky="NS", pady=2)
+
+        # ----- Document Count Label
+        self.document_count_var = tk.StringVar()
+        self.document_count = ttk.Label(
+            widget_parent, textvariable=self.document_count_var
+        )
+        self.document_count.grid(row=1, column=1, sticky="WS", padx=WINDOW_SIDE_PAD)
+
+        # ===== End Assembly Document Listbox Section
