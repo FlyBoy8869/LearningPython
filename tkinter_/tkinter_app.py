@@ -1,4 +1,5 @@
 import tkinter as tk
+
 from mainwindow import MainWindow
 
 APP_TITLE = "CopyDocs"
@@ -7,7 +8,14 @@ WINDOW_Y_DIMENSION = 500
 
 root = tk.Tk()
 root.title(f"{APP_TITLE}")
-root.geometry(f"{WINDOW_X_DIMENSION}x{WINDOW_Y_DIMENSION}")
+root.update_idletasks()
+
+screen_width = root.winfo_screenwidth()
+screen_height = root.winfo_screenheight()
+x = (screen_width // 2) - (WINDOW_X_DIMENSION // 2)
+y = (screen_height // 2) - (WINDOW_Y_DIMENSION // 2)
+root.geometry(f"{WINDOW_X_DIMENSION}x{WINDOW_Y_DIMENSION}+{x}+{y - (int(y * .5))}")
+
 root.option_add("*tearOff", tk.FALSE)
 
 MainWindow(root)
