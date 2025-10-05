@@ -2,7 +2,7 @@ import json
 import shutil
 from pathlib import Path
 
-from black import JSONDecodeError
+from json import JSONDecodeError
 
 assemblies_path = Path("./assemblies")
 document_locations = [
