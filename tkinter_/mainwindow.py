@@ -1,14 +1,13 @@
 import gettext
 import tkinter as tk
+import tkinter.filedialog as f_dialog
+import webbrowser
 from tkinter import ttk
 
-from listitem import TKListItem
-from tkinter_ import assemblies
+from tkinter_ import fileio
+from tkinter_.customwidgets.listitem import TKListItem
 from tkinter_.gui import menu
-
 from tkinter_.gui.panels import AssemblyPanel, DocumentPanel
-
-doc_path = "/Users/charles/working/CECIL/test docs"
 
 WINDOW_SIDE_PAD = 5
 WINDOW_TOP_PAD = 5
@@ -18,14 +17,13 @@ WINDOW_BOTTOM_PAD = 5
 class MainWindow(AssemblyPanel, DocumentPanel):
     def __init__(self, parent):
         self.root = parent
-        self.assemblies: dict = assemblies.load_assemblies()
+        self.assemblies: dict = fileio.load_assembly_files()
 
         # setup main menubar
         self.root.configure(menu=menu.make_menu(self.root))
 
         self.setup_assembly_panel(self.root)
-        self.assembly_list_var.set(self.get_assembly_names())
-        self.assembly_listbox.configure(listvariable=self.assembly_list_var)
+        self.assembly_listbox.list_variable_set(self.get_assembly_names())
         self.assembly_listbox.bind("<<ListboxSelect>>", self.on_assembly_item_clicked)
         self.assembly_listbox.selection_set(0)
         self.assembly_count_var.set(f"Assemblies: {len(self.assemblies)}")
@@ -34,6 +32,9 @@ class MainWindow(AssemblyPanel, DocumentPanel):
         self._populate_document_listbox(self.assemblies[self.assembly_listbox.get(0)])
         self.document_listbox.bind(
             "<<ListboxSelect>>", self.on_document_list_box_item_clicked
+        )
+        self.document_listbox.bind(
+            "<Double-1>", self.on_document_list_box_item_double_clicked
         )
 
         # ===== Status Label ================================================================================
@@ -67,12 +68,22 @@ class MainWindow(AssemblyPanel, DocumentPanel):
 
     def on_copy_button_clicked(self):
         if selection := self.document_listbox.curselection():
+            dest = f_dialog.askdirectory(mustexist=True)
+            if not dest:
+                return
+
+            print(f"dest selected: {dest}")
+
             num_files = len(selection)
             print(
                 f"copying {num_files} {gettext.ngettext("file", "files", num_files)}..."
             )
             for index in selection:
-                print(self.document_listbox.get(index))
+                paths = fileio.get_document_paths(
+                    self.document_listbox.get(index).split(":")[0]
+                )
+                print(f"{paths}")
+                fileio.copy_files(paths, dest)
 
             self.document_listbox.selection_clear(0, tk.END)
             self.copy_button.configure(state=tk.DISABLED)
@@ -82,6 +93,13 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self.update_status_bar(f"{len(selection)} documents selected.")
             self.copy_button.configure(state=tk.NORMAL)
 
+    def on_document_list_box_item_double_clicked(self, event):
+        document = event.widget.get(event.widget.curselection())
+        paths = fileio.get_document_paths(document.split(":")[0])
+        for path in paths:
+            print(f"{path}")
+            webbrowser.open_new_tab(path.as_uri())
+
     def get_assembly_names(self) -> list[TKListItem]:
         av = [k for k in self.assemblies.keys()]
         return sorted(av)
@@ -90,5 +108,5 @@ class MainWindow(AssemblyPanel, DocumentPanel):
         self.status_var.set(text)
 
     def _populate_document_listbox(self, documents):
-        self.document_list_var.set(documents)
+        self.document_listbox.list_variable_set(documents)
         self.document_count_var.set(f"Documents: {self.document_listbox.size()}")
