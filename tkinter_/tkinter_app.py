@@ -7,6 +7,13 @@ WINDOW_X_DIMENSION = 800
 WINDOW_Y_DIMENSION = 500
 
 root = tk.Tk()
+
+root.call(
+    "source",
+    r"C:\Users\charl\PycharmProjects\LearningPython\tkinter_\Sun-Valley-ttk-theme-master\Sun-Valley-ttk-theme-master\sun-valley.tcl",
+)
+root.call("set_theme", "dark")
+
 root.title(f"{APP_TITLE}")
 root.update_idletasks()
 

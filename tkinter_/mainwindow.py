@@ -27,6 +27,7 @@ class MainWindow(AssemblyPanel, DocumentPanel):
         self.assembly_listbox.bind("<<ListboxSelect>>", self.on_assembly_item_clicked)
         self.assembly_listbox.selection_set(0)
         self.assembly_count_var.set(f"Assemblies: {len(self.assemblies)}")
+        self.title_set(f"CopyDocs - {self.assembly_listbox.get(0)}")
 
         self.setup_document_panel(self.root)
         self._populate_document_listbox(self.assemblies[self.assembly_listbox.get(0)])
@@ -66,6 +67,8 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self._populate_document_listbox(docs)
             self.copy_button.configure(state=tk.DISABLED)
 
+            self.title_set(f"CopyDocs - {assembly}")
+
     def on_copy_button_clicked(self):
         if selection := self.document_listbox.curselection():
             dest = f_dialog.askdirectory(mustexist=True)
@@ -97,12 +100,14 @@ class MainWindow(AssemblyPanel, DocumentPanel):
         document = event.widget.get(event.widget.curselection())
         paths = fileio.get_document_paths(document.split(":")[0])
         for path in paths:
-            print(f"{path}")
-            webbrowser.open_new_tab(path.as_uri())
+            webbrowser.open_new_tab(path.resolve().as_uri())
 
     def get_assembly_names(self) -> list[TKListItem]:
         av = [k for k in self.assemblies.keys()]
         return sorted(av)
+
+    def title_set(self, text):
+        self.root.title(text)
 
     def update_status_bar(self, text: str):
         self.status_var.set(text)

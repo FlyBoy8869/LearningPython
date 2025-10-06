@@ -6,15 +6,16 @@ from json import JSONDecodeError
 
 assemblies_path = Path("./assemblies")
 document_locations = [
-    r"/Users/charles/working/MY_CECIL/test docs/Japanese Documents/101249_DCIT",
-    r"/Users/charles/working/MY_CECIL/test docs/Japanese Documents/cecil",
-    r"/Users/charles/working/MY_CECIL/test docs/Japanese Documents/documents",
-    r"/Users/charles/working/MY_CECIL/test docs/Korean Docs/documents",
-    r"/Users/charles/working/MY_CECIL/test docs/Korean Docs/Released Documents",
+    r"testDocs/Japanese Documents/101249_DCIT",
+    r"testDocs/Japanese Documents/cecil",
+    r"testDocs/Japanese Documents/documents",
+    r"testDocs/Korean Docs/documents",
+    r"testDocs/Korean Docs/Released Documents",
 ]
 
 
 def load_assembly_files() -> dict:
+    # TODO: Evaluate the use of dict instead of list
     assemblies = {}
 
     for assembly in assemblies_path.glob("*.json"):
