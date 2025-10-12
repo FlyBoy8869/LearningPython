@@ -17,6 +17,8 @@ dependencies = [
     "qdarkstyle>=3.2.3",
     "returns>=0.25.0",
     "sqlmodel>=0.0.24",
+    "sv-ttk>=2.6.1",
+    "ttkbootstrap>=1.14.7",
 ]
 
 [dependency-groups]

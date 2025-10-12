@@ -1,4 +1,7 @@
+import pathlib
 import tkinter as tk
+
+import sv_ttk
 
 from mainwindow import MainWindow
 
@@ -6,13 +9,16 @@ APP_TITLE = "CopyDocs"
 WINDOW_X_DIMENSION = 800
 WINDOW_Y_DIMENSION = 500
 
+# theme_path = pathlib.Path(__file__).parent / "Forest-ttk-theme-master/forest-dark.tcl"
 root = tk.Tk()
 
-root.call(
-    "source",
-    r"C:\Users\charl\PycharmProjects\LearningPython\tkinter_\Sun-Valley-ttk-theme-master\Sun-Valley-ttk-theme-master\sun-valley.tcl",
-)
-root.call("set_theme", "dark")
+# root.call(
+#     "source",
+#     theme_path.as_posix(),
+# )
+# root.call("set_theme", "dark")
+
+sv_ttk.set_theme("dark")
 
 root.title(f"{APP_TITLE}")
 root.update_idletasks()

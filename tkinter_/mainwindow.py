@@ -55,9 +55,10 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self.root, text="Copy", command=self.on_copy_button_clicked
         )
         self.copy_button.configure(state=tk.DISABLED)
-        self.copy_button.grid(row=1, column=2, sticky="EN")
+        self.copy_button.grid(row=1, column=3, sticky="en")
 
         self.root.rowconfigure(0, weight=1)
+        # self.root.columnconfigure(1, weight=1)
         # ===== End Copy Button Section =====================================================================
 
     def on_assembly_item_clicked(self, _):
@@ -68,6 +69,7 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self.copy_button.configure(state=tk.DISABLED)
 
             self.title_set(f"CopyDocs - {assembly}")
+            self.update_status_bar("")
 
     def on_copy_button_clicked(self):
         if selection := self.document_listbox.curselection():
@@ -89,6 +91,7 @@ class MainWindow(AssemblyPanel, DocumentPanel):
                 fileio.copy_files(paths, dest)
 
             self.document_listbox.selection_clear(0, tk.END)
+            self.update_status_bar("")
             self.copy_button.configure(state=tk.DISABLED)
 
     def on_document_list_box_item_clicked(self, _):

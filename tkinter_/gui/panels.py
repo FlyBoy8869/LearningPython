@@ -17,7 +17,7 @@ class AssemblyPanel:
         self.list_box_frame = ttk.Frame(
             widget_parent,
             relief="solid",
-            borderwidth=2,
+            borderwidth=1,
             padding=(3, 3, 3, 3),
         )
         self.list_box_frame.grid(
@@ -26,7 +26,7 @@ class AssemblyPanel:
             columnspan=1,
             padx=WINDOW_SIDE_PAD,
             pady=WINDOW_TOP_PAD,
-            sticky="NWS",
+            sticky="nws",
         )
         self.list_box_frame.rowconfigure(0, weight=1)
 
@@ -36,7 +36,7 @@ class AssemblyPanel:
             height=25,
             width=0,
         )
-        self.assembly_listbox.grid(row=0, column=0, stick="NSW", padx=5, pady=5)
+        self.assembly_listbox.grid(row=0, column=0, stick="nsw", padx=5, pady=5)
         self.assembly_listbox.selection_set(0)
 
         # ----- Scrollbar
@@ -46,14 +46,14 @@ class AssemblyPanel:
             command=self.assembly_listbox.yview,
         )
         self.assembly_listbox.configure(yscrollcommand=self.listbox_scrollbar.set)
-        self.listbox_scrollbar.grid(row=0, column=1, sticky="NS", pady=2)
+        self.listbox_scrollbar.grid(row=0, column=1, sticky="ns", pady=2)
 
         # ----- Assembly Count Label
         self.assembly_count_var = tk.StringVar()
         self.assembly_count = ttk.Label(
             self.list_box_frame, textvariable=self.assembly_count_var
         )
-        self.assembly_count.grid(row=1, column=0, sticky="WS", padx=WINDOW_SIDE_PAD)
+        self.assembly_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
         # ===== End Assembly Listbox Section =========================================================================
 
 
@@ -64,16 +64,17 @@ class DocumentPanel:
 
         # ----- Frame
         self.document_list_box_frame = ttk.Frame(
-            widget_parent, relief="solid", borderwidth=2, padding=(3, 3, 3, 3)
+            widget_parent, relief="solid", borderwidth=1, padding=(3, 3, 3, 3)
         )
         self.document_list_box_frame.grid(
             row=0,
             column=1,
             columnspan=3,
             pady=WINDOW_TOP_PAD,
-            sticky="NWS",
+            sticky="nsew",
         )
         self.document_list_box_frame.rowconfigure(0, weight=1)
+        self.document_list_box_frame.columnconfigure(0, weight=1)
 
         # ----- Listbox
         self.document_listbox = SpacedListbox(
@@ -98,13 +99,13 @@ class DocumentPanel:
         self.document_listbox.configure(
             yscrollcommand=self.document_listbox_scrollbar.set
         )
-        self.document_listbox_scrollbar.grid(row=0, column=2, sticky="NS", pady=2)
+        self.document_listbox_scrollbar.grid(row=0, column=2, sticky="ns", pady=2)
 
         # ----- Document Count Label
         self.document_count_var = tk.StringVar()
         self.document_count = ttk.Label(
             self.document_list_box_frame, textvariable=self.document_count_var
         )
-        self.document_count.grid(row=1, column=0, sticky="WS", padx=WINDOW_SIDE_PAD)
+        self.document_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
 
         # ===== End Assembly Document Listbox Section
