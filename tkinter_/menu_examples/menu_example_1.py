@@ -32,8 +32,15 @@ option_menubutton = ttk.Menubutton(
 )
 option_menubutton.pack(side="left", anchor="nw")
 
-text = ttk.Text(root, width=100000, height=100000)
-text.grid(row=1, column=0, sticky="nsew")
+assembly_frame = ttk.LabelFrame(root, text="Assembly", padding=(1, 4, 1, 1))
+assembly_frame.grid(column=0, row=1, sticky="nsew")
+
+assemblies = [f"Assembly {i}" for i in range(1, 41)]
+assembly_var = tk.StringVar(value=assemblies)
+assembly_listbox = tk.Listbox(
+    assembly_frame, listvariable=assembly_var, width=20, height=0
+)
+assembly_listbox.pack(side="left", anchor="nw", expand=True)
 
 root.place_window_center()
 root.mainloop()
