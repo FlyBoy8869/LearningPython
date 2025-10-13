@@ -1,4 +1,5 @@
 import tkinter as tk
+import ttkbootstrap as ttk
 
 from mainwindow import MainWindow
 
@@ -6,15 +7,8 @@ APP_TITLE = "CopyDocs"
 WINDOW_X_DIMENSION = 800
 WINDOW_Y_DIMENSION = 500
 
-# theme_path = pathlib.Path(__file__).parent / "Forest-ttk-theme-master/forest-dark.tcl"
-root = tk.Tk()
-
-# root.call(
-#     "source",
-#     theme_path.as_posix(),
-# )
-# root.call("set_theme", "dark")
-
+# root = tk.Tk()
+root = ttk.Window(themename="darkly")
 root.title(f"{APP_TITLE}")
 root.update_idletasks()
 

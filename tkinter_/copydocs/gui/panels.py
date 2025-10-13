@@ -1,5 +1,6 @@
 import tkinter as tk
-from tkinter import ttk
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 
 from tkinter_.copydocs.customwidgets.listbox import SpacedListbox
 
@@ -14,8 +15,10 @@ class AssemblyPanel:
         # ===== Assemblies Listbox Section =========================================================================
 
         # -----Frame
-        self.list_box_frame = ttk.Frame(
+        self.list_box_frame = ttk.LabelFrame(
             widget_parent,
+            text=" Assemblies: ",
+            bootstyle=INFO,
             relief="solid",
             borderwidth=1,
             padding=(3, 3, 3, 3),
@@ -42,6 +45,7 @@ class AssemblyPanel:
         # ----- Scrollbar
         self.listbox_scrollbar = ttk.Scrollbar(
             self.list_box_frame,
+            bootstyle=(PRIMARY, ROUND),
             orient="vertical",
             command=self.assembly_listbox.yview,
         )
@@ -51,7 +55,7 @@ class AssemblyPanel:
         # ----- Assembly Count Label
         self.assembly_count_var = tk.StringVar()
         self.assembly_count = ttk.Label(
-            self.list_box_frame, textvariable=self.assembly_count_var
+            self.list_box_frame, bootstyle=PRIMARY, textvariable=self.assembly_count_var
         )
         self.assembly_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
         # ===== End Assembly Listbox Section =========================================================================
@@ -63,8 +67,13 @@ class DocumentPanel:
         # ===== Documents Listbox Section
 
         # ----- Frame
-        self.document_list_box_frame = ttk.Frame(
-            widget_parent, relief="solid", borderwidth=1, padding=(3, 3, 3, 3)
+        self.document_list_box_frame = ttk.LabelFrame(
+            widget_parent,
+            text=" Documents: ",
+            bootstyle=INFO,
+            relief="solid",
+            borderwidth=1,
+            padding=(5, 5, 5, 5),
         )
         self.document_list_box_frame.grid(
             row=0,
@@ -87,12 +96,15 @@ class DocumentPanel:
             row=0,
             column=0,
             columnspan=1,
+            padx=5,
+            pady=5,
             sticky="NSEW",
         )
 
         # ----- Scrollbar
         self.document_listbox_scrollbar = ttk.Scrollbar(
             self.document_list_box_frame,
+            bootstyle=(PRIMARY, ROUND),
             orient="vertical",
             command=self.document_listbox.yview,
         )
@@ -104,7 +116,9 @@ class DocumentPanel:
         # ----- Document Count Label
         self.document_count_var = tk.StringVar()
         self.document_count = ttk.Label(
-            self.document_list_box_frame, textvariable=self.document_count_var
+            self.document_list_box_frame,
+            bootstyle=PRIMARY,
+            textvariable=self.document_count_var,
         )
         self.document_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
 
