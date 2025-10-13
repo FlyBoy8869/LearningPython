@@ -1,7 +1,4 @@
-import pathlib
 import tkinter as tk
-
-import sv_ttk
 
 from mainwindow import MainWindow
 
@@ -17,8 +14,6 @@ root = tk.Tk()
 #     theme_path.as_posix(),
 # )
 # root.call("set_theme", "dark")
-
-sv_ttk.set_theme("dark")
 
 root.title(f"{APP_TITLE}")
 root.update_idletasks()

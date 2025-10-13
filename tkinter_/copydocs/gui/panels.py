@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 
-from ..customwidgets.listbox import SpacedListbox
+from tkinter_.copydocs.customwidgets.listbox import SpacedListbox
 
 WINDOW_SIDE_PAD = 5
 WINDOW_TOP_PAD = 5

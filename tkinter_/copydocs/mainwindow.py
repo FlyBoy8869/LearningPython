@@ -4,10 +4,10 @@ import tkinter.filedialog as f_dialog
 import webbrowser
 from tkinter import ttk
 
-from tkinter_ import fileio
-from tkinter_.customwidgets.listitem import TKListItem
-from tkinter_.gui import menu
-from tkinter_.gui.panels import AssemblyPanel, DocumentPanel
+from tkinter_.copydocs import fileio
+from tkinter_.copydocs.customwidgets.listitem import TKListItem
+from tkinter_.copydocs.gui import menu
+from tkinter_.copydocs.gui.panels import AssemblyPanel, DocumentPanel
 
 WINDOW_SIDE_PAD = 5
 WINDOW_TOP_PAD = 5
