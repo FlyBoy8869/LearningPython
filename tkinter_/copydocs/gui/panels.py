@@ -79,6 +79,7 @@ class DocumentPanel:
             row=0,
             column=1,
             columnspan=3,
+            padx=WINDOW_SIDE_PAD,
             pady=WINDOW_TOP_PAD,
             sticky="nsew",
         )

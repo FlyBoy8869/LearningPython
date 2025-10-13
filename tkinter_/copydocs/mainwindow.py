@@ -10,9 +10,9 @@ from tkinter_.copydocs.customwidgets.listitem import TKListItem
 from tkinter_.copydocs.gui import menu
 from tkinter_.copydocs.gui.panels import AssemblyPanel, DocumentPanel
 
-WINDOW_SIDE_PAD = 5
-WINDOW_TOP_PAD = 5
-WINDOW_BOTTOM_PAD = 5
+WINDOW_SIDE_PAD = 0
+WINDOW_TOP_PAD = 0
+WINDOW_BOTTOM_PAD = 0
 
 
 class MainWindow(AssemblyPanel, DocumentPanel):
@@ -58,11 +58,12 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self.root, text="Copy", command=self.on_copy_button_clicked
         )
         self.copy_button.configure(state=tk.DISABLED)
-        self.copy_button.grid(row=1, column=3, sticky="en")
+        self.copy_button.grid(row=1, column=3, padx=WINDOW_SIDE_PAD + 5, sticky="en")
+
+        # ===== End Copy Button Section =====================================================================
 
         self.root.rowconfigure(0, weight=1)
-        # self.root.columnconfigure(1, weight=1)
-        # ===== End Copy Button Section =====================================================================
+        self.root.columnconfigure(1, weight=1)
 
     def on_assembly_item_clicked(self, _):
         if index := self.assembly_listbox.curselection():
@@ -103,8 +104,10 @@ class MainWindow(AssemblyPanel, DocumentPanel):
             self.copy_button.configure(state=tk.NORMAL)
 
     def on_document_list_box_item_double_clicked(self, event):
-        document = event.widget.get(event.widget.curselection())
-        paths = fileio.get_document_paths(document.split(":")[0])
+        document = event.widget.get(event.widget.curselection()).split(":")[0]
+        print(f"trying to open '{document}'")
+        paths = fileio.get_document_paths(document)
+        print(paths)
         for path in paths:
             webbrowser.open_new_tab(path.resolve().as_uri())
 
