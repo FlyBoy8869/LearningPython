@@ -3,7 +3,7 @@ import shutil
 from json import JSONDecodeError
 from pathlib import Path
 
-assemblies_path = Path("assemblies")
+assemblies_path = Path(__file__).parent / "assemblies"
 document_locations = [
     r"testDocs/Japanese Documents/101249_DCIT",
     r"testDocs/Japanese Documents/cecil",
