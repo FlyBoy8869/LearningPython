@@ -2,7 +2,8 @@ import gettext
 import tkinter as tk
 import tkinter.filedialog as f_dialog
 import webbrowser
-from tkinter import ttk
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 
 from tkinter_.copydocs import fileio
 from tkinter_.copydocs.customwidgets.listitem import TKListItem
@@ -40,7 +41,9 @@ class MainWindow(AssemblyPanel, DocumentPanel):
 
         # ===== Status Label ================================================================================
         self.status_var = tk.StringVar(value="")
-        self.status_label = ttk.Label(self.root, textvariable=self.status_var)
+        self.status_label = ttk.Label(
+            self.root, bootstyle=INFO, textvariable=self.status_var
+        )
         self.status_label.grid(
             row=2,
             column=0,
