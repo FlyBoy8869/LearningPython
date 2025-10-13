@@ -55,7 +55,7 @@ class AssemblyPanel:
         # ----- Assembly Count Label
         self.assembly_count_var = tk.StringVar()
         self.assembly_count = ttk.Label(
-            self.list_box_frame, bootstyle=PRIMARY, textvariable=self.assembly_count_var
+            self.list_box_frame, bootstyle=INFO, textvariable=self.assembly_count_var
         )
         self.assembly_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
         # ===== End Assembly Listbox Section =========================================================================
@@ -117,7 +117,7 @@ class DocumentPanel:
         self.document_count_var = tk.StringVar()
         self.document_count = ttk.Label(
             self.document_list_box_frame,
-            bootstyle=PRIMARY,
+            bootstyle=INFO,
             textvariable=self.document_count_var,
         )
         self.document_count.grid(row=1, column=0, sticky="ws", padx=WINDOW_SIDE_PAD)
