@@ -1,10 +1,9 @@
 import sys
 
-from PySide6.QtWidgets import QApplication
-
 # noinspection PyUnresolvedReferences
-import resources_rc
+import resources_rc  # noqa: F401
 from mainwindow import MainWindow
+from PySide6.QtWidgets import QApplication
 
 
 def main():

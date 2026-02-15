@@ -2,15 +2,15 @@ import sys
 from pathlib import Path
 
 import cdcutilities
-from PySide6.QtCore import Qt, QTimer, Signal, QRectF
-from PySide6.QtGui import QPixmap, QPainter, QPen, QFont, QFontDatabase
+from PySide6.QtCore import QRectF, Qt, QTimer, Signal
+from PySide6.QtGui import QFont, QFontDatabase, QPainter, QPen, QPixmap
 from PySide6.QtWidgets import (
     QApplication,
-    QMainWindow,
-    QLabel,
-    QVBoxLayout,
-    QPushButton,
     QFrame,
+    QLabel,
+    QMainWindow,
+    QPushButton,
+    QVBoxLayout,
 )
 
 # constants for displaying the countdown timer

@@ -2,9 +2,8 @@
 
 import sys
 
-from PySide6.QtWidgets import QApplication
-
 from mainview import MainView
+from PySide6.QtWidgets import QApplication
 
 
 def main():
