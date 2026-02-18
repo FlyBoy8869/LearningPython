@@ -1,0 +1,13 @@
+[defaults]
+name = "Charles"
+age = 56
+likes = [
+    "programming",
+    "movies",
+    "audiobooks"
+]
+
+[server]
+port = 43
+ip = "10.0.0.30"
+timeout = 60

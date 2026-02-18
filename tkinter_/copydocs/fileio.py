@@ -3,13 +3,14 @@ import shutil
 from json import JSONDecodeError
 from pathlib import Path
 
-assemblies_path = Path("assemblies")
+BASE = Path(__file__).parent
+assemblies_path = BASE / "assemblies"
 document_locations = [
-    r"testDocs/Japanese Documents/101249_DCIT",
-    r"testDocs/Japanese Documents/cecil",
-    r"testDocs/Japanese Documents/documents",
-    r"testDocs/Korean Docs/documents",
-    r"testDocs/Korean Docs/Released Documents",
+    BASE / "testDocs/Japanese Documents/101249_DCIT",
+    BASE / "testDocs/Japanese Documents/cecil",
+    BASE / "testDocs/Japanese Documents/documents",
+    BASE / "testDocs/Korean Docs/documents",
+    BASE / "testDocs/Korean Docs/Released Documents",
 ]
 
 
@@ -32,7 +33,7 @@ def get_document_paths(document):
     paths = []
 
     for p in _document_paths:
-        if document in p.name:
+        if document.lower() in p.name.lower():
             paths.append(p)
 
     return paths
@@ -41,8 +42,7 @@ def get_document_paths(document):
 def load_paths():
     paths = []
     for p in document_locations:
-        path = Path(p)
-        docs = path.glob("*.pdf")
+        docs = p.glob("*.pdf")
         paths.extend(docs)
 
     return paths

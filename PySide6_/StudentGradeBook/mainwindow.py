@@ -1,19 +1,18 @@
 import enum
 
-from PySide6.QtCore import Qt, QSize, Signal, Slot
-from PySide6.QtGui import QColor, QPalette, QIcon
+import validators
+from models import tablemodel
+from PySide6.QtCore import QSize, Qt, Signal, Slot
+from PySide6.QtGui import QColor, QIcon, QPalette
 from PySide6.QtWidgets import (
-    QMainWindow,
-    QTableWidgetItem,
-    QTableWidget,
     QAbstractButton,
     QLineEdit,
+    QMainWindow,
+    QTableWidget,
+    QTableWidgetItem,
 )
-
-import validators
-from PySide6_.StudentGradeBook.helpers import messagebox
-from PySide6_.StudentGradeBook.models.customtablewidget import MyTableWidgetItem
-from models import tablemodel
+from helpers import messagebox
+from models.customtablewidget import MyTableWidgetItem
 from ui.ui_mainwindow import Ui_MainWindow
 
 TITLE = "Student Grade Book"
