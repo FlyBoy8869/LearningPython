@@ -1,20 +1,22 @@
 from pathlib import Path
+from typing import TYPE_CHECKING
 
 from tinydb import TinyDB, where
 
-_db_path: Path = Path(__file__).parent / "assemblies_db.json"
-db = TinyDB(_db_path.resolve().as_posix(), indent=4)
-sources_table = db.table(name="sources")
+if TYPE_CHECKING:
+    from tinydb.table import Table
 
-_source_dict: dict[str, str] = {
-    "source": "",
-}
+_db_name: str = "assemblies_db.json"
+_db_path: Path = Path(__file__).parent / _db_name
+
+db = TinyDB(_db_path.resolve().as_posix(), indent=4)
+
+assemblies_table: Table = db.table(name="assemblies")
+sources_table: Table = db.table(name="sources")
 
 
 def add_source(source: str) -> None:
-    d: dict[str, str] = _source_dict.copy()
-    d["source"] = source
-    sources_table.insert(d)
+    sources_table.insert({"source": source})
 
 
 def source_exists(source: str) -> bool:

@@ -13,6 +13,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
 
+        self.actionExit.triggered.connect(self.close)
         self.actionSelect_Source.triggered.connect(self.handle_action_select_source)
 
     def closeEvent(self, event: QCloseEvent) -> None:  # noqa: N802
