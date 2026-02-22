@@ -1,15 +1,13 @@
 import sys
-from typing import NoReturn
 
 from mainwindow import MainWindow
 from PySide6.QtWidgets import QApplication
 
 
-def main() -> NoReturn:
+def main() -> None:
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec())
     sys.exit(app.exec())
 
 
