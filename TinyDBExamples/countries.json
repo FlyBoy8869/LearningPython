@@ -1,0 +1,31 @@
+{
+    "countries": {
+        "1": {
+            "location": "Vatican City",
+            "population": 503
+        },
+        "2": {
+            "location": "India",
+            "population": 1417492000
+        },
+        "3": {
+            "location": "China",
+            "population": 1408280000
+        },
+        "4": {
+            "location": "Argentina",
+            "population": 45929925,
+            "continent": "South America"
+        },
+        "5": {
+            "location": "Switzerland",
+            "population": 8990428,
+            "continent": "Europe"
+        },
+        "6": {
+            "location": "Mozambique",
+            "population": 36147236,
+            "continent": "Africa"
+        }
+    }
+}

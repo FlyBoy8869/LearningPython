@@ -1,0 +1,67 @@
+{
+    "assemblies": {
+        "1": {
+            "nomenclature": "Japanese CJL Blank Nozzle Inserts",
+            "partNumber": "L-1.9.5",
+            "documents": {
+                "P0601560008": "inspect",
+                "P0601560011": "inspect",
+                "DCIT.MHI.2000": "doc"
+            }
+        },
+        "2": {
+            "nomenclature": "Japanese Control Area Interface Unit",
+            "partNumber": "1012490210",
+            "documents": {
+                "1012490005": "doc",
+                "1012490105": "inspect",
+                "1012490130": "build",
+                "1012490131": "inspect",
+                "1012490132": "inspect",
+                "1012490145": "inspect",
+                "1012490160": "inspect",
+                "1012490182": "build",
+                "1012490199": "inspect",
+                "1012490203": "build",
+                "1012490204": "build",
+                "1012490205": "build",
+                "1012490206": "build",
+                "1012490210": "build",
+                "1012490211": "build",
+                "1012490220": "build"
+            }
+        },
+        "3": {
+            "nomenclature": "Japanese Controls, Case B",
+            "partNumber": "1012490152",
+            "documents": {
+                "C01670": "build",
+                "1012490001": "doc",
+                "1012490004": "doc",
+                "1012490109": "inspect",
+                "1012490124": "inspect",
+                "1012490127": "build",
+                "1012490136": "inspect",
+                "1012490137": "build",
+                "1012490139": "inspect",
+                "1012490140": "inspect",
+                "1012490141": "inspect",
+                "1012490142": "build",
+                "1012490143": "build",
+                "1012490152": "build",
+                "1012490157": "doc",
+                "1012490159": "build",
+                "1012490161": "inspect",
+                "1012490162": "inspect",
+                "1012490195": "inspect",
+                "1012490230": "build",
+                "1012490231": "build",
+                "1012490232": "build",
+                "1012490240": "inspect",
+                "1012490241": "inspect",
+                "DCIT.MHI.250": "doc",
+                "DCIT.MHI.2000": "doc"
+            }
+        }
+    }
+}
