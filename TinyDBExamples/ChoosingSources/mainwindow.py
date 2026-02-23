@@ -17,7 +17,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.add_menu_actions()
 
         self.actionExit.triggered.connect(self.close)
-        self.menuSettings.triggered.connect(self.handle_action_add_source)
 
         self.load_sources()
         self.listWidget.itemClicked.connect(self.handle_listwidget_item_clicked)
