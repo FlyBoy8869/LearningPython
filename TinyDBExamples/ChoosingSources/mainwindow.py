@@ -1,8 +1,7 @@
 from typing import TYPE_CHECKING
 
 import database as db
-
-# import messages
+import messages
 from PySide6.QtWidgets import QFileDialog, QMainWindow, QMenu
 from ui_mainwindow import Ui_MainWindow
 
@@ -31,7 +30,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "Select a document source",
         ):
             if db.has_source(directory):
-                # messages.warning_ok("Source already in database.", self)
+                messages.warning_ok("Source already in database.", self)
                 return
 
             self.listWidget.addItem(directory)
@@ -42,6 +41,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def handle_view_sources(self, _) -> None:
         from pprint import pprint  # noqa: PLC0415
+
         pprint(db.sources())
 
     def add_menu_actions(self) -> None:
