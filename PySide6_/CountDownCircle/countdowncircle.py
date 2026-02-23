@@ -1,7 +1,7 @@
 import sys
 from pathlib import Path
 
-import cdcutilities
+import cdcutilities  # type: ignore  # noqa: PGH003
 from PySide6.QtCore import QRectF, Qt, QTimer, Signal
 from PySide6.QtGui import QFont, QFontDatabase, QPainter, QPen, QPixmap
 from PySide6.QtWidgets import (
@@ -31,7 +31,7 @@ PEN_JOIN_STYLE = Qt.PenJoinStyle.RoundJoin
 CANVAS_FILL_COLOR = Qt.GlobalColor.black
 
 # countdown time
-SECONDS = 3600
+SECONDS = 60
 
 
 class MainView(QMainWindow):
@@ -66,7 +66,7 @@ class MainView(QMainWindow):
         font_families = QFontDatabase.applicationFontFamilies(font_id)
         if font_families:
             font_family = font_families[0]
-        self.font = QFont(font_family, POINT_SIZE, QFont.Weight.Bold)
+        self.my_font = QFont(font_family, POINT_SIZE, QFont.Weight.Bold)
 
         # the painting surface
         self.canvas = QPixmap(500, 500)
@@ -126,10 +126,12 @@ class MainView(QMainWindow):
             self.angle_span + (self.counter * self.degree_delta),
         )
 
-        painter.setFont(self.font)
+        painter.setFont(self.my_font)
 
         text = cdcutilities.time.format_seconds(
-            self.countdown, use_days=True, multi_line=False
+            self.countdown,
+            use_days=True,
+            multi_line=False,
         )
 
         self.pen.setColor(COUNT_COLOR)
