@@ -18,6 +18,9 @@ sources_table: Table = db.table(name="sources")
 def add_source(source: str) -> None:
     sources_table.insert({"source": source})
 
+def delete_source(source: str) -> None:
+    sources_table.remove(where("source") == source)
+
 
 def sources() -> list[str]:
     """Return a sorted list of document source directories."""
