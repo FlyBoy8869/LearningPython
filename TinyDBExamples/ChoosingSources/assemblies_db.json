@@ -872,16 +872,10 @@
             "source": "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/documents"
         },
         "2": {
-            "source": "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/101249_DCIT"
-        },
-        "3": {
             "source": "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/cecil"
         },
-        "4": {
-            "source": "/Users/charles/working/MY_CECIL/test docs/Korean Docs/documents"
-        },
-        "5": {
-            "source": "/Users/charles/working/MY_CECIL/test docs/Korean Docs/Released Documents"
+        "3": {
+            "source": "/Users/charles/working/MY_CECIL/test docs/Japanese Documents/101249_DCIT"
         }
     }
 }

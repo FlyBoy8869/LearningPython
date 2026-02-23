@@ -55,7 +55,6 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuFile.menuAction())
         self.menubar.addAction(self.menuSettings.menuAction())
         self.menuFile.addAction(self.actionExit)
-        self.menuSettings.addAction(self.actionSelect_Source)
 
         self.retranslateUi(MainWindow)
 

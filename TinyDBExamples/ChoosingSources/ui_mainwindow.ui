@@ -43,7 +43,6 @@
     <property name="title">
      <string>Settings</string>
     </property>
-    <addaction name="actionSelect_Source"/>
    </widget>
    <addaction name="menuFile"/>
    <addaction name="menuSettings"/>

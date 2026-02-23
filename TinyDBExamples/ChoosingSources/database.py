@@ -19,7 +19,12 @@ def add_source(source: str) -> None:
     sources_table.insert({"source": source})
 
 
-def source_exists(source: str) -> bool:
+def sources() -> list[str]:
+    """Return a sorted list of document source directories."""
+    return sorted([d["source"] for d in sources_table.all()])
+
+
+def has_source(source: str) -> bool:
     return bool(sources_table.search(where("source") == source))
 
 

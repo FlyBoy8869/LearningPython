@@ -12,6 +12,7 @@ def _make_message_instance(icon, title, text, buttons, parent) -> QMessageBox:
 
 
 def warning_ok(text: str, parent: QWidget) -> None:
+    """Displays a warning message box with an Ok button."""
     _make_message_instance(
         QMessageBox.Icon.Warning,
         "Warning",

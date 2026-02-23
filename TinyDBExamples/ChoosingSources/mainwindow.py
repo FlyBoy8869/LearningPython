@@ -1,53 +1,59 @@
 from typing import TYPE_CHECKING
 
 import database as db
-import messages
-from PySide6.QtWidgets import QFileDialog, QMainWindow
+
+# import messages
+from PySide6.QtWidgets import QFileDialog, QMainWindow, QMenu
 from ui_mainwindow import Ui_MainWindow
 
 if TYPE_CHECKING:
-    from PySide6.QtGui import QCloseEvent, QShowEvent
+    from PySide6.QtGui import QCloseEvent
 
 
 class MainWindow(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.add_menu_actions()
 
         self.actionExit.triggered.connect(self.close)
-        self.actionSelect_Source.triggered.connect(self.handle_action_select_source)
+        self.menuSettings.triggered.connect(self.handle_action_add_source)
+
+        self.load_sources()
+        self.listWidget.itemClicked.connect(self.handle_listwidget_item_clicked)
 
     def closeEvent(self, event: QCloseEvent) -> None:  # noqa: N802
         db.close()
         return super().closeEvent(event)
 
-    def showEvent(self, event: QShowEvent) -> None:  # noqa: N802
-        self.load_sources()
-        return super().showEvent(event)
-
-    def handle_action_select_source(self, _) -> None:
+    def handle_action_add_source(self, _) -> None:
         if directory := QFileDialog.getExistingDirectory(
             self,
             "Select a document source",
         ):
-            if db.source_exists(directory):
-                # msgbox = QMessageBox(
-                #     QMessageBox.Icon.Warning,
-                #     "Source",
-                #     "Source already exists in the database.",
-                #     QMessageBox.StandardButton.Ok,
-                #     parent=self,
-                # )
-                # msgbox.open()
-                messages.warning_ok("Source already in database.", self)
+            if db.has_source(directory):
+                # messages.warning_ok("Source already in database.", self)
                 return
 
             self.listWidget.addItem(directory)
             db.add_source(directory)
 
-    def load_sources(self) -> None:
-        if not len(db.sources_table):
-            return
+    def handle_listwidget_item_clicked(self, item) -> None:
+        print(f"{item.text()} at row {self.listWidget.row(item)}")
 
-        for source in db.sources_table.all():
-            self.listWidget.addItem(source["source"])
+    def handle_view_sources(self, _) -> None:
+        from pprint import pprint  # noqa: PLC0415
+        pprint(db.sources())
+
+    def add_menu_actions(self) -> None:
+        sources_menu = QMenu(self, title="Document Sources")
+        sources_menu.addAction("Add Source").triggered.connect(
+            self.handle_action_add_source,
+        )
+        sources_menu.addAction("View Sources").triggered.connect(
+            self.handle_view_sources,
+        )
+        self.menuSettings.addMenu(sources_menu)
+
+    def load_sources(self) -> None:
+        self.listWidget.addItems(db.sources())
