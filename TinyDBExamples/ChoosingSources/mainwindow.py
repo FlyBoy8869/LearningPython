@@ -1,7 +1,8 @@
 from typing import TYPE_CHECKING
 
 import database as db
-from PySide6.QtWidgets import QFileDialog, QMainWindow, QMessageBox
+import messages
+from PySide6.QtWidgets import QFileDialog, QMainWindow
 from ui_mainwindow import Ui_MainWindow
 
 if TYPE_CHECKING:
@@ -30,16 +31,17 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             "Select a document source",
         ):
             if db.source_exists(directory):
-                msgbox = QMessageBox(
-                    QMessageBox.Icon.Warning,
-                    "Source",
-                    "Source already exists in the database.",
-                    QMessageBox.StandardButton.Ok,
-                    parent=self,
-                )
-                msgbox.open()
-
+                # msgbox = QMessageBox(
+                #     QMessageBox.Icon.Warning,
+                #     "Source",
+                #     "Source already exists in the database.",
+                #     QMessageBox.StandardButton.Ok,
+                #     parent=self,
+                # )
+                # msgbox.open()
+                messages.warning_ok("Source already in database.", self)
                 return
+
             self.listWidget.addItem(directory)
             db.add_source(directory)
 

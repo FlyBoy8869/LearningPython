@@ -35,6 +35,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.listWidget = QListWidget(self.centralwidget)
         self.listWidget.setObjectName(u"listWidget")
+        self.listWidget.setAlternatingRowColors(True)
 
         self.verticalLayout.addWidget(self.listWidget)
 
