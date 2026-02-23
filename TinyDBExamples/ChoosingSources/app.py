@@ -4,12 +4,12 @@ from mainwindow import MainWindow
 from PySide6.QtWidgets import QApplication
 
 
-def main() -> None:
+def main() -> int:
     app = QApplication(sys.argv)
     window = MainWindow()
     window.show()
-    sys.exit(app.exec())
+    return app.exec()
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())
