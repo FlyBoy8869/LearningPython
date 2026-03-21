@@ -6,7 +6,13 @@ from ui_about import Ui_About
 
 
 class AboutDialog(QDialog, Ui_About):
-    def __init__(self, parent=None):
+    def __init__(
+        self,
+        parent=None,
+        width: int | None = None,
+        height: int = 200,
+        duration: int = 250,
+    ):
         super().__init__(parent)
         self.setupUi(self)
         self.installEventFilter(self)
@@ -23,11 +29,13 @@ class AboutDialog(QDialog, Ui_About):
         self.move(parent.pos())
 
         self.size_animation = QPropertyAnimation(self, b"size")
-        self.size_animation.setEndValue(QSize(parent.width(), 300))
-        self.size_animation.setDuration(500)
+        self.size_animation.setEndValue(
+            QSize(width if width else parent.width(), height)
+        )
+        self.size_animation.setDuration(duration)
         self.size_animation.start()
 
-    def eventFilter(self, obj, event):
+    def eventFilter(self, obj, event: QEvent) -> bool:
         if (
             event.type() == QEvent.Type.MouseButtonPress
             or event.type() == QEvent.Type.KeyPress
