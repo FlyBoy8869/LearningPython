@@ -15,7 +15,7 @@ class AboutDialog(QDialog, Ui_About):
         p = QPalette()
         color: str = p.color(QPalette.ColorRole.Window).name(QColor.NameFormat.HexArgb)
         dialog_stylesheet: str = (
-            f"QWidget {{background-color: {color}; border-width: 4px; border-style: solid; border-radius: 20px; border-color: #7393B3;}}"
+            f"QWidget {{background-color: {color}; border-width: 2px; border-style: solid; border-radius: 20px; border-color: #7393B3;}}"
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setStyleSheet(dialog_stylesheet)
@@ -24,11 +24,14 @@ class AboutDialog(QDialog, Ui_About):
 
         self.size_animation = QPropertyAnimation(self, b"size")
         self.size_animation.setEndValue(QSize(parent.width(), 300))
-        self.size_animation.setDuration(150)
+        self.size_animation.setDuration(500)
         self.size_animation.start()
 
     def eventFilter(self, obj, event):
-        if event.type() == QEvent.Type.MouseButtonPress:
+        if (
+            event.type() == QEvent.Type.MouseButtonPress
+            or event.type() == QEvent.Type.KeyPress
+        ):
             self.close()
             event.accept()
             return event.isAccepted()
