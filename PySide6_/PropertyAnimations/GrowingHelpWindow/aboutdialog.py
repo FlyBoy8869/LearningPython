@@ -15,7 +15,7 @@ class AboutDialog(QDialog, Ui_About):
         p = QPalette()
         color: str = p.color(QPalette.ColorRole.Window).name(QColor.NameFormat.HexArgb)
         dialog_stylesheet: str = (
-            f"QWidget {{background-color: {color}; border-radius: 5px;}}"
+            f"QWidget {{background-color: {color}; border-width: 4px; border-style: solid; border-radius: 20px; border-color: #7393B3;}}"
         )
         self.setAttribute(Qt.WidgetAttribute.WA_TranslucentBackground)
         self.setStyleSheet(dialog_stylesheet)
