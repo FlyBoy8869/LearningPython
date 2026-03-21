@@ -39,6 +39,6 @@ class Ui_About(object):
 
     def retranslateUi(self, About):
         About.setWindowTitle(QCoreApplication.translate("About", u"About", None))
-        self.label.setText(QCoreApplication.translate("About", u"Hi, I'm the About Dialog", None))
+        self.label.setText(QCoreApplication.translate("About", u"Hi, I'm the About Dialog!", None))
     # retranslateUi
 
